@@ -26,9 +26,11 @@ class HackerNewsScraper:
         rows = soup.select('tr.athing')[:30]  # Get first 30 entries
 
         for index, row in enumerate(rows, 1):
-            title_line = row.find('td', class_='title')
-            title = title_line.find('a', class_='storylink').text.strip() if title_line else ''
+            # Extraer título
+            title_span = row.select_one('span.titleline > a')
+            title = title_span.text.strip() if title_span else ''
             
+            # Extraer subtext (puntos y comentarios)
             subtext = row.find_next_sibling('tr').find('td', class_='subtext')
             points = 0
             comments = 0
@@ -40,17 +42,20 @@ class HackerNewsScraper:
                 comments = int(comments_text.split()[0]) if comments_text != 'discuss' else 0
 
             items.append(NewsItem(number=index, title=title, points=points, comments=comments))
-        
+    
         return items
 
     def get_word_count(self, title: str) -> int:
-        # Remove symbols and count spaced words
+
         clean_title = re.sub(r'[^\w\s]', ' ', title)
         return len(clean_title.split())
 
-    def filter_by_title_length(self, items: List[NewsItem], min_words: int, sort_key: str) -> List[NewsItem]:
-        filtered = [item for item in items if self.get_word_count(item.title) > min_words] if min_words > 0 else \
-                   [item for item in items if self.get_word_count(item.title) <= min_words]
+    def filter_by_title_length(self, items: List[NewsItem], min_words: int, sort_key: str, mode: str = "greater") -> List[NewsItem]:
+        if mode == "greater":
+            filtered = [item for item in items if self.get_word_count(item.title) > min_words]
+        else:
+            filtered = [item for item in items if self.get_word_count(item.title) <= min_words]
+
         if sort_key == 'comments':
             return sorted(filtered, key=lambda x: x.comments, reverse=True)
         return sorted(filtered, key=lambda x: x.points, reverse=True)
@@ -58,4 +63,3 @@ class HackerNewsScraper:
     def scrape(self) -> List[NewsItem]:
         html = self.fetch_page()
         return self.parse_page(html)
-

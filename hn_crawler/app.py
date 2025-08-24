@@ -8,8 +8,8 @@ def create_app():
     @app.route('/')
     def index():
         items = scraper.scrape()
-        more_than_five = scraper.filter_by_title_length(items, 5, 'comments')
-        less_than_five = scraper.filter_by_title_length(items, 0, 'points')
+        more_than_five = scraper.filter_by_title_length(items, 5, 'comments', mode="greater")
+        less_than_five = scraper.filter_by_title_length(items, 5, 'points', mode="less_equal")
         return render_template('index.html', 
                             more_than_five=more_than_five, 
                             less_than_five=less_than_five)
