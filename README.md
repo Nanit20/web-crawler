@@ -24,6 +24,8 @@ I started with test_scrapper.py to test the scraper itself before moving on to t
 I tried to simplify the code as much as possible to make it clean, readable, and easy to follow. Once I had it running locally (simply in Visual Studio Code), I pushed it to GitHub, created a Codespace, and started making commits so the progress could be tracked.
 
 At some point, I ran into errors that I didn’t fully understand. After reviewing the code and running the tests again, I noticed a parsing issue because I had cleaned up the code and was no longer using .text.
+<img width="512" height="70" alt="image" src="https://github.com/user-attachments/assets/071c3023-16ab-4d6b-9aea-31a90bc64d7f" />
+
 
 Another issue occurred when running python hn_crawler/app.py, as the hn_crawler package could not be found. I resolved this by running the module as python -m hn_crawler.app.
 
