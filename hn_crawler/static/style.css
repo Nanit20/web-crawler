@@ -1,0 +1,86 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #1d4ed8;
+  color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  animation: fadeDown 1s ease-out;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+h2 {
+  margin: 30px 0 15px;
+  font-size: 1.5rem;
+  color: #93c5fd;
+  border-left: 6px solid #3b82f6;
+  padding-left: 10px;
+}
+
+/* Card */
+.card {
+  background: #1e293b;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  padding: 20px;
+  margin-bottom: 40px;
+  animation: fadeUp 1s ease-in-out;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+}
+th {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+td {
+  color: #f1f5f9;
+}
+tr:nth-child(even) td {
+  background: #334155;
+}
+tr:nth-child(odd) td {
+  background: #1e293b;
+}
+tr:hover td {
+  background: #2563eb;
+  color: white;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

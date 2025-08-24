@@ -23,14 +23,12 @@ class HackerNewsScraper:
     def parse_page(self, html: str) -> List[NewsItem]:
         soup = BeautifulSoup(html, 'html.parser')
         items = []
-        rows = soup.select('tr.athing')[:30]  # Get first 30 entries
+        rows = soup.select('tr.athing')[:30]
 
         for index, row in enumerate(rows, 1):
-            # Extraer título
             title_span = row.select_one('span.titleline > a')
             title = title_span.text.strip() if title_span else ''
             
-            # Extraer subtext (puntos y comentarios)
             subtext = row.find_next_sibling('tr').find('td', class_='subtext')
             points = 0
             comments = 0
