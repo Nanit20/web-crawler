@@ -10,7 +10,7 @@ Web Scraping 101: Tools, Techniques, and Best Practices -> https://medium.com/ge
 
 Keith Galli – YouTube Tutorial -> https://www.youtube.com/watch?v=DcI_AZqfZVc&ab_channel=KeithGalli
 
-After some investigation, I decided to go with this option and started building the project. I used the following video as a full guide: Corey Schafer – Web Scraping with BeautifulSoup
+After some investigation, I decided to go with this option and started building the project. I used the following video as a full guide: Corey Schafer – Web Scraping with BeautifulSoup -> https://www.youtube.com/watch?v=ng2o98k983k&ab_channel=CoreySchafer
 , and also referred to the following documentation:
 
 Real Python: Web Scraping with BeautifulSoup -> https://realpython.com/beautiful-soup-web-scraper-python/
